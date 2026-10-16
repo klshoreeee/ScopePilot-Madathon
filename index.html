@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#dff5e9">
+  <title>ScopePilot | Scope & Contract Management</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="welcome" class="welcome-screen">
+    <div class="welcome-orbit orbit-one"></div><div class="welcome-orbit orbit-two"></div>
+    <div class="welcome-content">
+      <div class="brand-wordmark">ScopePilot</div>
+      <p class="eyebrow">SCOPEPILOT · SCOPE LOCK & CONTRACTS</p>
+      <h1>Clear scope.<br><em>Confident delivery.</em></h1>
+      <p class="welcome-copy">One shared place for project scope, approvals, progress and every decision that changes the plan.</p>
+      <h2 class="choose-title">Choose how you want to enter</h2>
+      <div class="role-cards">
+        <button class="role-card manager-card" data-role="Manager"><span class="role-icon">M</span><strong>Manager</strong><small>Review, coordinate & approve</small><span class="arrow">↗</span></button>
+        <button class="role-card client-card" data-role="Client"><span class="role-icon">C</span><strong>Client</strong><small>Review scope & sign off</small><span class="arrow">↗</span></button>
+        <button class="role-card developer-card" data-role="Developer"><span class="role-icon">D</span><strong>Developer</strong><small>Update work & raise questions</small><span class="arrow">↗</span></button>
+      </div>
+      <p class="tiny-note">Hackathon demo · Data syncs to Supabase after setup</p>
+    </div>
+  </div>
+
+  <section id="login" class="login-screen hidden">
+    <div class="login-panel">
+      <button class="text-button" id="backToWelcome">← Change role</button>
+      <div class="brand-wordmark small-mark">ScopePilot</div>
+      <p class="eyebrow">SECURE PROJECT WORKSPACE</p>
+      <h1 id="loginTitle">Welcome back</h1>
+      <p id="loginSubtitle" class="muted">Enter your details to continue.</p>
+      <form id="loginForm">
+        <label for="userName">Your name</label><input id="userName" name="userName" placeholder="e.g. Alex Morgan" required>
+        <div id="staffFields">
+          <label for="userId">Employee ID</label><input id="userId" name="userId" placeholder="e.g. DEV-104" required>
+          <label for="jobRole">Your designation</label>
+          <select id="jobRole" name="jobRole">
+            <option>Trainee</option><option>Junior Software Engineer</option><option>Software Engineer</option>
+            <option>Senior SE</option><option>Technical Lead</option><option>Module Lead</option>
+            <option>Team Lead</option><option>Senior Architect</option><option>Delivery Director</option>
+          </select>
+        </div>
+        <div id="clientFields" class="hidden"><label for="companyName">Firm / company name</label><input id="companyName" name="companyName" placeholder="e.g. Acme Retail"></div>
+        <button class="primary-button full-button" type="submit">Enter workspace <span>→</span></button>
+      </form>
+      <p class="tiny-note">This is a front-end prototype, not production authentication.</p>
+    </div>
+  </section>
+
+  <div id="workspace" class="workspace hidden">
+    <aside class="sidebar">
+      <a class="sidebar-brand" href="#" id="homeLink"><span class="brand-wordmark mini-mark">SP</span><span><b>ScopePilot</b><small>PROJECT WORKSPACE</small></span></a>
+      <div class="project-chip"><span class="status-dot"></span><span><b id="sideProject">Retail Mobile App</b><small>ACTIVE PROJECT</small></span></div>
+      <p class="nav-label">WORKSPACE</p><nav id="sideNav"></nav>
+      <div class="sidebar-bottom"><div class="help-icon">?</div><div><b>Need a hand?</b><small>Keep decisions documented.</small></div></div>
+    </aside>
+    <div class="main-column">
+      <header class="topbar">
+        <div><p class="eyebrow" id="crumb">PROJECT OVERVIEW</p><h1 id="pageTitle">Dashboard</h1></div>
+        <div class="top-actions"><span class="online-pill"><i></i> Demo workspace</span><div class="user-pill"><span id="avatar" class="avatar">M</span><span><b id="userDisplay">Manager</b><small id="userMeta">Workspace user</small></span></div><button id="switchRole" class="outline-button">Switch role ↗</button></div>
+      </header>
+      <main id="app" class="page-content"></main>
+      <footer>ScopePilot · Keep the scope clear, keep the team aligned.</footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
